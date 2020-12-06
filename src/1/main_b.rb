@@ -37,7 +37,7 @@ def find_factors_and_multiply(input, target = 2020)
   multiplied
 end
 
-def start
+def run
   day_num = 1
   input = get_input(day_num)
   find_factors_and_multiply(input)

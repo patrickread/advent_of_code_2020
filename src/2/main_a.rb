@@ -29,7 +29,7 @@ def check_rule(rule_and_password)
   occurrences >= rule_and_password[:low_num] && occurrences <= rule_and_password[:high_num]
 end
 
-def start
+def run
   day_num = 2
   input = get_input(day_num)
   rule_and_passwords = parse_data(input)
