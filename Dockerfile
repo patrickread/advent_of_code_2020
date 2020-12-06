@@ -1,3 +1,3 @@
 FROM ruby:2.7
-COPY . .
-ENTRYPOINT ["ruby", "src/start.rb"]
+COPY . /app
+ENTRYPOINT ["ruby", "app/src/start.rb"]
