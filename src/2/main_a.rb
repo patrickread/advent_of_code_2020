@@ -1,5 +1,3 @@
-require_relative '../util/helpers'
-
 def parse_data(input)
   delimiter = ': '
 

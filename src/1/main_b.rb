@@ -1,5 +1,3 @@
-require_relative '../util/helpers'
-
 # Input is an array of strings
 def find_factors_and_multiply(input, target = 2020)
   input = input.map(&:to_i)
