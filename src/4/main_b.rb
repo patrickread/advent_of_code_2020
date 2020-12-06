@@ -2,22 +2,20 @@ require 'dry/validation'
 
 DAY_NUM = 4
 
-VALID_EYE_COLORS = %w[amb blu brn gry grn hzl oth].freeze
-
 class PassportSchema < Dry::Validation::Contract
   params do
     required(:byr).filled(:integer, gteq?: 1920, lteq?: 2002)
     required(:iyr).filled(:integer, gteq?: 2010, lteq?: 2020)
     required(:eyr).filled(:integer, gteq?: 2020, lteq?: 2030)
     required(:hgt).filled(:string)
-    required(:hcl).filled(:string, format?: /#[abcdef\d]{6}/)
-    required(:ecl).filled(:string).filled(included_in?: VALID_EYE_COLORS)
-    required(:pid).filled(:string, format?: /(\d){9}/)
+    required(:hcl).filled(:string, format?: /^#[abcdef\d]{6}$/)
+    required(:ecl).filled(:string).filled(included_in?: %w[amb blu brn gry grn hzl oth].freeze)
+    required(:pid).filled(:string, format?: /^(\d){9}$/)
   end
 
   rule(:hgt) do
-    number = value[/\d+/].to_i
-    unit = value[/\D+/]
+    number = value[0..-3].to_i
+    unit = value[-2..-1]
 
     unless %w[cm in].include?(unit)
       key.failure('unit must be cm or in')
