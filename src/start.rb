@@ -2,6 +2,8 @@ require_relative 'util/helpers'
 
 file_to_run = ENV['FILE']
 
-require_relative file_to_run
+if file_to_run
+  require_relative file_to_run
 
-run
+  run
+end
