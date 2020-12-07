@@ -8,4 +8,4 @@ COPY Gemfile.lock $app/Gemfile.lock
 RUN bundle install
 COPY . $app
 
-ENTRYPOINT ["ruby", "src/start.rb"]
+CMD ["ruby", "src/start.rb"]
