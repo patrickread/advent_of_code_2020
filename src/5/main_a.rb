@@ -21,7 +21,16 @@ def get_column(seat_code)
   column.to_i(2)
 end
 
-def run
-  input = get_input(DAY_NUM)
+def get_max_seat_id(seat_codes)
+  seat_ids = seat_codes.map do |seat_code|
+    get_seat_id(seat_code)
+  end
 
+  seat_ids.max
+end
+
+def run
+  seat_codes = get_input(DAY_NUM)
+  max_seat_id = get_max_seat_id(seat_codes)
+  puts "Max seat ID: #{max_seat_id}"
 end
