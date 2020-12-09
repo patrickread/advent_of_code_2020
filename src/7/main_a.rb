@@ -53,7 +53,7 @@ end
 
 def find_unique_parents(target_color, rules)
   all_parents = find_parent_bags(target_color, rules)
-  all_parents.uniq!{ |x| x[:parent_color]}
+  all_parents.uniq!{ |x| x[:parent_color] }
   puts "#{all_parents.length} parents of #{target_color} found!"
 end
 
